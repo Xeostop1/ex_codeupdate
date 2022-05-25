@@ -4,11 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>in→cm바꾸기</title>
 </head>
 <body>
+    <div class="calcul">
+        <input type="text" class="inch_num" placeholder="숫자를 입력하세요"><br>
+        <input type="button" value="계산" class="input_calcul">
+    </div>
+    <p></p>
     <script>
-//         function ask(question, yes, no) {
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+    //만약에 elemnets로 추출했으면 값은 배열에 있는걸 언제나 확인!!
+    //예제는 getElementsByClassName으로 안하고 쿼리셀렉트로 하려고 버튼을 사용함!  
+    const input= document.getElementsByClassName("inch_num");
+    const but=document.getElementsByClassName("input_calcul")
+    // console.log(but);
+    const p_output=document.querySelector("p");
+
+    //여기는 람다식
+    //펑션으로 변경하기 
+    but[0].addEventListener("click",cm_change());
+
+
+        function cm_change(){
+            console.log("실행되고 있나요?ㅠㅠ")
+        const inch=Number(input[0].value);
+        // console.log(inch)
+        if(Number.isNaN(inch)){
+            p_output.textContent="숫자로! 입력해주세요"
+            return;//다시!
+        }
+            const cm=inch*2.54
+            p_output.textContent=`입력하신 ${inch}는 ${cm}cm입니다`;
+        }
+    
+    
+
+        
+        
+})//전체실행 
+
+
+
+//function ask(question, yes, no) {
 //   if (confirm(question)) yes()
 //   else no();
 // }
@@ -19,13 +59,15 @@
 //   function() { alert("취소 버튼을 누르셨습니다."); }
 // );
 //애로우펑션으로 바꾸기!🐱‍🐉 짧은것만 바꾸자~~
-function ask (question, yes, no){
-if(confirm(question)){
-    yes()
-}else no()}; 
-ask("동의하십니까? ",
-() => alert("동의"),
-() => alert("취소"))
+// function ask (question, yes, no){
+// if(confirm(question)){
+//     yes()
+// }else no()}; 
+// ask("동의하십니까? ",
+// () => alert("동의"),
+// () => alert("취소"))
+
+
 
 
 
