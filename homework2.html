@@ -12,12 +12,39 @@
             width: 50px;
             height:50px;
         }
+		#nav{
+			<!-- background-color: red; -->
+			border: 1px solid #ccc;	
+		}
+		#nav> div{
+			display:inline-block;
+			border: 1px solid #ccc;	
+		}
+		.logo{
+			padding-right:50px;
+			padding-top:50px;
+			}
+		h1{
+			width: 400px;
+			height: 100px;
+			text-align:left;
+			padding-top:65px;
+		}
+		.login{
+			text-align:left;
+			
+		}
+		.login> span{
+			
+			<!-- width:60px; -->
+		}
+		
     </style>
 </head>
 <body>
     <div id="wrap">
         <header class="header">
-            <div id="nav"> 빨간색 
+            <div id="nav">  
                 <div class="logo">
                     <img src="/img/img3.png" alt="">
                 </div>
@@ -25,8 +52,8 @@
                     <h1>제목자리</h1>
                 </div>
                 <div class="login">
-                    아이디: <input type="text" name="id">
-                    비밀번: <input type="password" name="id">
+                   <span> 아이디: <input type="text" name="id"><br> </span>
+                    <span> 비밀번호: <input type="password" name="id"> </span>
                 </div>
                 <div class="navbar">
                     <ul>
