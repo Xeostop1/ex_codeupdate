@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      .nav {
+        height: 70px;
+        border-bottom: 1px solid black;
+        display: flex;
+        /* 인라인 블럭, float, gride와 같이 가로 나열 */
+        /* justify-content, space-between으로 배치(가로정렬와 관련) */
+        /* 세로정렬은 align-items으로 조절가능 */
+        align-items: center;
+      }
+      .nav-right-items {
+        display: flex;
+        margin-left: auto;
+      }
+      .nav-item {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <!-- 오른쪽 정렬을 위한 div -->
+      <div class="nav-right-items">
+        <div class="nav-item">메뉴1</div>
+        <div class="nav-item">메뉴2</div>
+        <div class="nav-item">메뉴3</div>
+        <div class="nav-item">메뉴4</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="title">Pricing</div>
+      <div class="subtitle">
+        If you could fly to France in one minute, you could go straight into the
+        sunset, right from noon. Unfortunately, France is too far away for that.
+        But on your tiny planet, my little prince, all you need do is move your
+        chair a few steps. You can see the day end and the twilight falling
+        whenever you like... "One day," you said to me, "I saw the sunset
+        forty-four times!"
+      </div>
+    </div>
+    <div class="prices">
+      <div class="price-item">프라이스1</div>
+      <div class="price-item">프라이스2</div>
+      <div class="price-item">프라이스3</div>
+    </div>
+  </body>
+</html>
