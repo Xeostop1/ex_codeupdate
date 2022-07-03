@@ -8,36 +8,66 @@
             margin: 0;
             padding: 0;
         }
-        .logo img{
-            width: 50px;
-            height:50px;
-        }
-		#nav{
-			<!-- background-color: red; -->
-			border: 1px solid #ccc;	
+		#wrap{
+			margin:0 auto;
+			width:800px;
+			background-color:orange;
 		}
-		#nav> div{
-			display:inline-block;
-			border: 1px solid #ccc;	
+		
+       /*nav*/
+				
+		#nav{
+			border:1px solid black;
+			display:flex;
+			content:center;
+			height: 100px;
+			padding:20px;
+		}
+		#nav div{
+			display:flex;
+			content:center;
+			height: 100px;
+			/*아이디랑 비번때문에 세로정렬 사용*/
+			flex-direction:column;
+			padding-top:10px;
+		}
+		#nav img{
+			width: 100px;
+			height:100px;
+		}
+		.logo, .title, .login{
+			margin-right:15x;
+			margin-left:15px;
 		}
 		.logo{
-			padding-right:50px;
-			padding-top:50px;
-			}
-		h1{
-			width: 400px;
-			height: 100px;
-			text-align:left;
-			padding-top:65px;
+			margin-left:107px;
+		}
+		.title{
+			width: 250px;
+			padding-left:20px;
+		}
+		.login span input{
+			width:60px;
+		}
+		.input_1{
+			margin-left:16px;
 		}
 		.login{
-			text-align:left;
-			
+			padding-left:15px;
+			padding-right:15px;
 		}
-		.login> span{
-			
-			<!-- width:60px; -->
+		/* 메뉴바  */
+		.menu{
+			border:1px solid black;
+			height: 70px;
+			display: flex;
+			justify-content:center;
 		}
+		.menu_center{
+			display: flex;
+			;			
+		}
+		
 		
     </style>
 </head>
@@ -46,55 +76,28 @@
         <header class="header">
             <div id="nav">  
                 <div class="logo">
-                    <img src="/img/img3.png" alt="">
+                    <img src="./img1.jpg" alt="">
                 </div>
                 <div class="title">
                     <h1>제목자리</h1>
                 </div>
                 <div class="login">
-                   <span> 아이디: <input type="text" name="id"><br> </span>
-                    <span> 비밀번호: <input type="password" name="id"> </span>
+                 <span>아이디: <input class="input_1" type="text" name="id"></span>
+                 <span>비밀번호: <input type="password" name="pw"></span>
                 </div>
-                <div class="navbar">
-                    <ul>
-                        <li class="topli"><a href="#">메뉴1</a></li>
-                            <ul class="sub">
-                                <li>하단1</li>
-                                <li>하단2</li>
-                                <li>하단3</li>
-                                <li>하단4</li>
-                            </ul>
-                            <li class="topli"><a href="#">메뉴2</a></li>
-                            <ul class="sub">
-                                <li>하단1</li>
-                                <li>하단2</li>
-                                <li>하단3</li>
-                                <li>하단4</li>
-                            </ul>
-                            <li class="topli"><a href="#">메뉴3</a></li>
-                            <ul class="sub">
-                                <li>하단1</li>
-                                <li>하단2</li>
-                                <li>하단3</li>
-                                <li>하단4</li>
-                            </ul>
-                            <li class="topli"><a href="#">메뉴4</a></li>
-                            <ul class="sub">
-                                <li>하단1</li>
-                                <li>하단2</li>
-                                <li>하단3</li>
-                                <li>하단4</li>
-                            </ul>
-                            <li class="topli"><a href="#">메뉴5</a></li>
-                            <ul class="sub">
-                                <li>하단1</li>
-                                <li>하단2</li>
-                                <li>하단3</li>
-                                <li>하단4</li>
-                            </ul>
-                    </ul>
+			</div>
+            <div class="menu">
+				<div class="menu_center">
+					<div class="menu-item">메뉴1</div>
+						<ul>
+							<li class="sub">하단메뉴</li>
+							<li class="sub">하단메뉴</li>
+							<li class="sub">하단메뉴</li>
+						</ul>	
+					<div class="menu-item">메뉴2</div>
+					<div class="menu-item">메뉴3</div>
+					<div class="menu-item">메뉴4</div>
                 </div>
-            </div>
         </header>
         <aside class="aside">
             <div class="asdie_div">
