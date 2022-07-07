@@ -21,10 +21,7 @@
 * {
   box-sizing: border-box;
 }
-#warp{
-  width: 600px;
-  margin: 0 auto;
-}
+
 body{
   height: 100vh;
   background-color: var(--color-black);
@@ -43,6 +40,7 @@ body{
 }
 .btn{
   background-color: transparent;
+  /* 이미지 투명 */
   border: none;
   outline: none;
   cursor: pointer;
@@ -53,7 +51,7 @@ body{
 .btn:hover{
   transform: scale(1.1);
 }
-.buttions{
+.buttons{
   display: flex;
   align-items: center;
 }
