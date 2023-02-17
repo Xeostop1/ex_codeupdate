@@ -60,7 +60,12 @@
         {
             num:2,
             str:"길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 으면 'YES'를 출력하고, 만들 수 없으면 'NO'를 출력한다"
-        }    
+        },
+        {
+            num:2,
+            str:"연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때 N명이 학생수"+ 
+                "를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성하세요."
+        }       
     ];
 
     document.querySelector("button").addEventListener("click",()=>{
@@ -74,6 +79,7 @@
         //100이하의 자연수 A, B, C를 입력받아 
         //세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)
 
+        
         function compare(a,b,c) {
             let min;
             //ab를 비교 그래서 작은 값을 비교
@@ -85,7 +91,7 @@
             console.log(min)
             return min;
         }
-        let result=compare(2,3,4)
+        let result=compare(13,33,17)
 
 
 
@@ -93,6 +99,49 @@
         길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 
         으면 “YES"를 출력하고, 만들 수 없으면 ”NO"를 출력한다
         */
+       //알아야 되는 문제 삼각형 결정조건 **가장 긴변의 길이가 / 2변의 길이의 합 보다 크거나 같으면 성립불가**
+       //긴변은 2개의 합보다 작고 같지 않아야 한다. → 긴변은 2개의 합보다 작거나 같지 않아야한다. 
+       //===========오답노트===========================
+        //1. 틀린부분!! 우선은 제일 긴 막대를 찾아서 비교 후 if
+        //2. 세개의 변수를 다 더해서 제일 긴 값을 빼고 max>=(sum-max)값이면 삼각형 불가
+       function Triangle(a,b,c) {  
+            //다음에 max값과 c를 비교함
+             let sum=a+b+c;
+             let max;
+             a>b?max=a:max=b;
+             if(max<c)max=c;
+             max>=(sum-max)?console.log(`No`):console.log(`Yes`);
+            //이렇게는 못구하나봐 ㅠㅠㅠㅠ 
+            // if(c>=a+b && b>=c+a && a>=c+b) console.log(`No`)
+            // else console.log(`Yes`)
+       }
+       Triangle(6,7,11);
+
+       /*3.연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때 N명이 학생수 
+            를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성하세요.
+            학생에게는 1개의 자루
+       */
+       const Pencil=(stdent)=>{ 
+        let pencil=12
+        let res;
+        if(stdent>0){
+            res= stdent/pencil;
+            if(parseInt(res)===0){
+                res=1;
+            }
+            console.log(`check`,res)
+            //* 해서 소수점 자리를 정할 수 있다.
+            res=res.toFixed(1);
+            console.log(`필요한 연필의 다수는 ${parseFloat(res)} 입니다`);
+        }
+        else{
+            console.log(`${stdent}는 음수입니다. 양수를 적어주세요.`)
+        }
+        
+       }
+
+
+       Pencil(20);
 
 
     </script>
