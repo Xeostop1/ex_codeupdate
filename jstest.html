@@ -10,19 +10,22 @@
 <body>
     <h1>지금은 자바스크립트 테스트 중입니다.</h1>
     <button>문제추가</button>
+    
+    <div class="count"></div>
     <div class="question"></div>
     <hr>
 
 
     <script>
-        let strs=[];
-        
+
         //===DivList추가======
         //객체 이용
         function List(item) {
            item.forEach((a,i) => {
             const temp=document.createElement("div");
+            
             temp.innerHTML=`
+                
                 <div class="question no ${i+1}">
                     <p><b>${i+1}</b> . ${a.str}</p>
                 </div>
@@ -32,12 +35,23 @@
            });
            }
 
-           let 
 
-        //let str="3 수중에 최소값 구하기 100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)";
-
-        //문제 json
-
+        function conut(item) {
+            item.forEach((a,i) => {
+                if(i>0){
+                    countNum++;
+                    console.log(`check`,countNum)
+                    const count =document.createElement("div");
+                    count.innerHTML=`
+                    <h1>${countNum}의 문제를 풀었습니다. </h1>
+                `;
+                document.querySelector(".question").append(count);
+                }
+                
+            })
+            
+        }
+        
         const questionJson=[{
             num:1,
             str:"3 수중에 최소값 구하기 100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)",
@@ -45,7 +59,7 @@
         },
         {
             num:2,
-            str:"hello"
+            str:"길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 으면 'YES'를 출력하고, 만들 수 없으면 'NO'를 출력한다"
         }    
     ];
 
