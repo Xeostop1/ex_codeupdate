@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="tagdesign.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>지금은 자바스크립트 테스트 중입니다.</h1>
+    <button>문제추가</button>
+    <div class="question"></div>
+    <hr>
+
+
+    <script>
+        let strs=[];
+        
+        //===DivList추가======
+        //객체 이용
+        function List(item) {
+           item.forEach((a,i) => {
+            const temp=document.createElement("div");
+            temp.innerHTML=`
+                <div class="question no ${i+1}">
+                    <p><b>${i+1}</b> . ${a.str}</p>
+                </div>
+                <hr>
+           `;
+           document.querySelector(".question").append(temp);
+           });
+           }
+
+           let 
+
+        //let str="3 수중에 최소값 구하기 100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)";
+
+        //문제 json
+
+        const questionJson=[{
+            num:1,
+            str:"3 수중에 최소값 구하기 100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)",
+            pass:false
+        },
+        {
+            num:2,
+            str:"hello"
+        }    
+    ];
+
+    document.querySelector("button").addEventListener("click",()=>{
+            List(questionJson);  
+        });
+        
+
+
+
+        //1. 3 수중에 최소값 구하기 
+        //100이하의 자연수 A, B, C를 입력받아 
+        //세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)
+
+        function compare(a,b,c) {
+            let min;
+            //ab를 비교 그래서 작은 값을 비교
+            if(a<b)min=a;
+            else min=b;
+            //다음에 최소값과 다음 변수(c)를 비교
+            if(c<min)min=c;
+            else min=c;
+            console.log(min)
+            return min;
+        }
+        let result=compare(2,3,4)
+
+
+
+        /* 2.
+        길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 
+        으면 “YES"를 출력하고, 만들 수 없으면 ”NO"를 출력한다
+        */
+
+
+    </script>
+</body>
+</html>
