@@ -1,199 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="tagdesign.js"></script>
     <title>자바코딩테스트 문제</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>지금은 자바스크립트 테스트 중입니다.</h1>
     <button>문제추가</button>
-    
+
     <div class="count"></div>
     <div class="question"></div>
-    <hr>
-
+    <hr />
 
     <script>
-
-        //===DivList추가======
-        //객체 이용
-        function List(item) {
-           item.forEach((a,i) => {
-            const temp=document.createElement("div");
-            
-            temp.innerHTML=`
-                
-                <div class="question no ${i+1}">
-                    <p><b>${i+1}</b> . ${a.str}</p>
-                </div>
-                <hr>
-           `;
-           document.querySelector(".question").append(temp);
-           });
-           }
-
-
-        function conut(item) {
-            item.forEach((a,i) => {
-                if(i>0){
-                    countNum++;
-                    console.log(`check`,countNum)
-                    const count =document.createElement("div");
-                    count.innerHTML=`
-                    <h1>${countNum}의 문제를 풀었습니다. </h1>
-                `;
-                document.querySelector(".question").append(count);
-                }
-                
-            })
-            
-        }
-        
-        const questionJson=[{
-            num:1,
-            str:"3 수중에 최소값 구하기 100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)",
-            pass:false
+      const questionJson = [
+        {
+          num: 1,
+          str: "3 수중에 최소값 구하기 100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)",
+          pass: false,
         },
         {
-            num:2,
-            str:"길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 으면 'YES'를 출력하고, 만들 수 없으면 'NO'를 출력한다"
+          num: 2,
+          str: "길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 으면 'YES'를 출력하고, 만들 수 없으면 'NO'를 출력한다",
         },
         {
-            num:3,
-            str:"연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때 N명이 학생수"+ 
-                "를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성하세요."
-        },     
-        {
-            num:4,
-            str:" 1부터 N까지 합 출력하기"+
-                "자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요"
+          num: 3,
+          str:
+            "연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때 N명이 학생수" +
+            "를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성하세요.",
         },
         {
-            num:5,
-            str:" 7개의 수가 주어지면 그 숫자 중 가장 작은 수를 출력하는 프로그램을 작성하세요."
+          num: 4,
+          str:
+            " 1부터 N까지 합 출력하기" +
+            "자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요",
         },
-    ];
+        {
+          num: 5,
+          str: " 7개의 수가 주어지면 그 숫자 중 가장 작은 수를 출력하는 프로그램을 작성하세요.",
+        },
+        {
+          num: 6,
+          str: " 7개의 자연수가 주어질 때, 이들 중 홀수인 자연수들을 모두 골라 그 합을 구하고, 고른 홀수들 중 최소값을 찾는 프로그램을 작성하세요.",
+        },
+      ];
 
-    document.querySelector("button").addEventListener("click",()=>{
-            List(questionJson);  
+      document.querySelector("button").addEventListener("click", () => {
+        List(questionJson);
+      });
+
+      //===DivList추가======
+      //객체 이용
+      function List(item) {
+        item.forEach((a, i) => {
+          const temp = document.createElement("div");
+
+          temp.innerHTML = `
+
+                      <div class="question no ${i + 1}">
+                          <p><b>${i + 1}</b> . ${a.str}</p>
+                      </div>
+                      <hr>
+                 `;
+          document.querySelector(".question").append(temp);
         });
-        
-
-
-
-        //1. 3 수중에 최소값 구하기 
-        //100이하의 자연수 A, B, C를 입력받아 
-        //세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)
-
-        
-        function compare(a,b,c) {
-            let min;
-            //ab를 비교 그래서 작은 값을 비교
-            if(a<b)min=a;
-            else min=b;
-            //다음에 최소값과 다음 변수(c)를 비교
-            if(c<min)min=c;
-            else min=c;
-            console.log(min)
-            return min;
-        }
-        let result=compare(13,33,17)
-
-
-
-        /* 2.
-        길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있 
-        으면 “YES"를 출력하고, 만들 수 없으면 ”NO"를 출력한다
-        */
-       //알아야 되는 문제 삼각형 결정조건 **가장 긴변의 길이가 / 2변의 길이의 합 보다 크거나 같으면 성립불가**
-       //긴변은 2개의 합보다 작고 같지 않아야 한다. → 긴변은 2개의 합보다 작거나 같지 않아야한다. 
-       //===========오답노트===========================
-        //1. 틀린부분!! 우선은 제일 긴 막대를 찾아서 비교 후 if
-        //2. 세개의 변수를 다 더해서 제일 긴 값을 빼고 max>=(sum-max)값이면 삼각형 불가
-       function Triangle(a,b,c) {  
-            //다음에 max값과 c를 비교함
-             let sum=a+b+c;
-             let max;
-             a>b?max=a:max=b;
-             if(max<c)max=c;
-             max>=(sum-max)?console.log(`No`):console.log(`Yes`);
-            //이렇게는 못구하나봐 ㅠㅠㅠㅠ 
-            // if(c>=a+b && b>=c+a && a>=c+b) console.log(`No`)
-            // else console.log(`Yes`)
-       }
-       Triangle(6,7,11);
-
-       /*3.연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때 N명이 학생수 
-            를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성하세요.
-            학생에게는 1개의 자루
-       */
-       const Pencil=(stdent)=>{ 
-        let pencil=12
-        let res;
-        if(stdent>0){
-            res= stdent/pencil;
-            if(parseInt(res)===0){
-                res=1;
-            }
-            console.log(`check`,res)
-            //* 해서 소수점 자리를 정할 수 있다.
-            //res=res.toFixed(1);
-            //오답노트: 그러나 우리는 학생이 다 받는걸 원하기 때문에 나머지가 있다면?! 올림이 필요함
-            res=Math.ceil(res);
-            // console.log(`check2`,res)
-            console.log(`필요한 연필의 다수는 ${parseFloat(res)} 입니다`);
-        }
-        else{
-            console.log(`${stdent}는 음수입니다. 양수를 적어주세요.`)
-        }
-       }
-       Pencil(178);
-       /* 4. 
-       1부터 N까지 합 출력하기 
-       자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요
-       */
-      
-      function toSum(a){
-        let sum=0;
-        if(a>0){
-            for(let i=1; i<=a; i++){
-                sum=sum+i;
-            }
-            console.log(`sum: ${sum}`)
-        }
-        return sum;
       }
-      toSum(10);
+      /*
+            function conut(item) {
+              item.forEach((a, i) => {
+                if (i > 0) {
+                  countNum++;
+                  console.log(`check`, countNum);
+                  const count = document.createElement("div");
+                  count.innerHTML = `
+                          <h1>${countNum}의 문제를 풀었습니다. </h1>
+                      `;
+                  document.querySelector(".question").append(count);
+                }
+              });
+            }
 
 
-      /*5.
-      7개의 수가 주어지면 그 숫자 중 가장 작은 수를 출력하는 프로그램을 작성하세요.
-      */
-     //오답노트: 최대값을 일단 상정한 후에! 그것과 비교를 한다. 나처럼 인덱스끼리 비교하는게 아니고
-     
-      function minArr(arr){
-        let min1=Number.MAX_SAFE_INTEGER;//넘버객체에서 최대값 설정
+
+            //1. 3 수중에 최소값 구하기
+            //100이하의 자연수 A, B, C를 입력받아
+            //세 수 중 가장 작은 값을 출력하는 프로그램을 작성하세요.(정렬을 사용하면 안됩니다)
+
+            function compare(a, b, c) {
+              let min;
+              //ab를 비교 그래서 작은 값을 비교
+              if (a < b) min = a;
+              else min = b;
+              //다음에 최소값과 다음 변수(c)를 비교
+              if (c < min) min = c;
+              else min = c;
+              console.log(min);
+              return min;
+            }
+            let result = compare(13, 33, 17);
+
+            /* 2.
+              길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어지면 이 세 막대로 삼각형을 만들 수 있
+              으면 “YES"를 출력하고, 만들 수 없으면 ”NO"를 출력한다
+
+            //알아야 되는 문제 삼각형 결정조건 **가장 긴변의 길이가 / 2변의 길이의 합 보다 크거나 같으면 성립불가**
+            //긴변은 2개의 합보다 작고 같지 않아야 한다. → 긴변은 2개의 합보다 작거나 같지 않아야한다.
+            //===========오답노트===========================
+            //1. 틀린부분!! 우선은 제일 긴 막대를 찾아서 비교 후 if
+            //2. 세개의 변수를 다 더해서 제일 긴 값을 빼고 max>=(sum-max)값이면 삼각형 불가
+            function Triangle(a, b, c) {
+              //다음에 max값과 c를 비교함
+              let sum = a + b + c;
+              let max;
+              a > b ? (max = a) : (max = b);
+              if (max < c) max = c;
+              max >= sum - max ? console.log(`No`) : console.log(`Yes`);
+              //이렇게는 못구하나봐 ㅠㅠㅠㅠ
+              // if(c>=a+b && b>=c+a && a>=c+b) console.log(`No`)
+              // else console.log(`Yes`)
+            }
+            Triangle(6, 7, 11);
+
+            /*3.연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때 N명이 학생수
+                  를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성하세요.
+                  학생에게는 1개의 자루
+
+            const Pencil = (stdent) => {
+              let pencil = 12;
+              let res;
+              if (stdent > 0) {
+                res = stdent / pencil;
+                if (parseInt(res) === 0) {
+                  res = 1;
+                }
+                console.log(`check`, res);
+                //* 해서 소수점 자리를 정할 수 있다.
+                //res=res.toFixed(1);
+                //오답노트: 그러나 우리는 학생이 다 받는걸 원하기 때문에 나머지가 있다면?! 올림이 필요함
+                res = Math.ceil(res);
+                // console.log(`check2`,res)
+                console.log(`필요한 연필의 다수는 ${parseFloat(res)} 입니다`);
+              } else {
+                console.log(`${stdent}는 음수입니다. 양수를 적어주세요.`);
+              }
+            };
+            Pencil(178);
+            /* 4.
+             1부터 N까지 합 출력하기
+             자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요
+
+
+            function toSum(a) {
+              let sum = 0;
+              if (a > 0) {
+                for (let i = 1; i <= a; i++) {
+                  sum = sum + i;
+                }
+                console.log(`sum: ${sum}`);
+              }
+              return sum;
+            }
+            toSum(10);
+
+            /*5.
+            7개의 수가 주어지면 그 숫자 중 가장 작은 수를 출력하는 프로그램을 작성하세요.
+
+            //오답노트: 최대값을 일단 상정한 후에! 그것과 비교를 한다. 나처럼 인덱스끼리 비교하는게 아니고
+
+            function minArr(arr) {
+              let min1 = Number.MAX_SAFE_INTEGER; //넘버객체에서 최대값 설정
+              for (let i = 0; i < arr.length; i++) {
+                //인덱스 순서대로 비교
+                if (arr[i] < min1) {
+                  min1 = arr[i];
+                }
+                /*if(arr[i]<arr[i+1]){
+                      min1=arr[i];
+                  }else{
+                      min1=arr[i+1];
+                  }
+              }
+              }
+              console.log(`check5`, min1);
+              return min1;
+            }
+
+            let sampleArr = [5, 3, 7, 11, 2, 15, 17];
+            minArr(sampleArr);
+
+            // 5.
+            //7개의 자연수가 주어질 때, 이들 중 홀수인 자연수들을 모두 골라 그 합을 구하고, 고른 홀수들 중 최소값을 찾는 프로그램을 작성하세요.
+            
+      let testArr = [12, 77, 38, 41, 53, 92, 85];
+      let sum = 0;
+      let min = Number.MAX_SAFE_INTEGER;
+      function odd(arr) {
         for (let i = 0; i < arr.length; i++) {
-            //인덱스 순서대로 비교
-            if(arr[i]<min1){
-                min1=arr[i];
+          if (arr[i] % 2 == 1) {
+            sum = sum + arr[i];
+            if (arr[i] < min) {
+              min = arr[i];
+              console.log(`check3`, min);
             }
-            /*if(arr[i]<arr[i+1]){
-                min1=arr[i];
-            }else{
-                min1=arr[i+1];
-            }
-        }*/
-        console.log(`check`,min1)
+          }
+        }
+        console.log(sum);
+        console.log(`check3`, min);
       }
-      return min1
-    }
+      odd(testArr);*/
 
-      let sampleArr=[5,3,7,11,2,15,17];
-      minArr(sampleArr);
+      //서울시는 6월 1일부터 교통 혼잡을 막기 위해서 자동차 10부제를 시행한다. 자동차 10부제는 자동차 번호의 일의 자리 숫자와 날짜의 일의 자리 숫자가 일치하면 해당 자동차의 운행을 금 지하는 것이다. 예를 들어, 자동차 번호의 일의 자리 숫자가 7이면 7일, 17일, 27일에 운행하 지 못한다. 또한, 자동차 번호의 일의 자리 숫자가 0이면 10일, 20일, 30일에 운행하지 못한 다.
+      // 여러분들은 일일 경찰관이 되어 10부제를 위반하는 자동차의 대수를 세는 봉사활동을 하려고 한다. 날짜의 일의 자리 숫자가 주어지고 7대의 자동차 번호의 끝 두 자리 수가 주어졌을 때 위반하는 자동차의 대수를 출력하는 프로그램을 작성하세요
     </script>
-</body>
+  </body>
 </html>
