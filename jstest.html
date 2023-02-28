@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="tagdesign.js"></script>
-    <title>자바코딩테스트 문제</title>
+    <title>자바스크립트코딩테스트 문제</title>
   </head>
   <body>
     <h1>지금은 자바스크립트 테스트 중입니다.</h1>
@@ -238,7 +238,19 @@
       // 아홉 명의 난쟁이는 모두 자신이 "백설 공주와 일곱 난쟁이"의 주인공이라고 주장했다. 뛰어난 수학적 직관력을 가지고 있던 백설공주는, 다행스럽게도 일곱 난쟁이의 키의 합이 100이 됨을 기억해 냈다.
       // 아홉 난쟁이의 키가 주어졌을 때, 백설공주를 도와 일곱 난쟁이를 찾는 프로그램을 작성하시 오
 
-      function totalSum(params) {}
+      function totalSum(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
+
+          if (sum <= 100) {
+            console.log(sum);
+            console.log(arr);
+          }
+        }
+      }
+      let testArr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      totalSum(testArr);
     </script>
   </body>
 </html>
