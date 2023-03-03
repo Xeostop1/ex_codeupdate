@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 문제</title>
+</head>
+<body>
+    A를 #으로
+대문자로 이루어진 영어단어가 입력되면 단어에 포함된 ‘A'를 모두 ’#‘으로 바꾸어 출력하는 
+프로그램을 작성하세요.<br>
+▣ 입력설명<br>
+첫 번째 줄에 문자열이 입력된다. <br>
+▣ 출력설명<br>
+첫 번째 줄에 바뀐 단어를 출력한다. <br>
+▣ 입력예제 1<br>
+BANANA <br>
+▣ 출력예제 1<br>
+B#N#N#<br>
+<hr><br>
+<p class="anwser"></p><br>
+<hr>
+<p>처음에는 serach사용→ 이건 변경이 불가능</p>
+<p>replace 사용했는데 첫번째 A만 변경되어서 다시 수정</p>
+<p>정규식을 통해서 수정 :  </p>
+<legend>
+    <fieldset>바꿔야할 문자를 앞뒤로 /을 사용하여 정규식으로 만들고 <br>
+         /뒤에 g을 써서 global match 세팅해줌 <br>
+        쌍따옴표없이 사용
+    </fieldset>
+</legend>
+<ul>
+    <li>리플레이스 사용</li>
+</ul>
+
+
+<script>
+    let anwserBox=document.querySelector(".anwser");
+   function changeA(str) {
+        // let res=str.replace("A","#")
+        let res=str.replace(/A/g,"#");
+        console.log(res);
+        return res;
+    }
+
+   let res= changeA("BANANA");
+   anwserBox.innerHTML=`<h1>정답: ${res}</h1>`;
+</script>
+</body>
+</html>
