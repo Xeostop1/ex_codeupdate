@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 문제 3</title>
+</head>
+<body>
+    한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은 문자열에 <br>
+    몇 개 존재하는지 알아내는 프로그램을 작성하세요.<br>
+    문자열의 길이는 100을 넘지 않습니다 <br>
+    ▣ 입력설명 <br>
+    첫 줄에 문자열이 주어지고, 두 번째 줄에 문자가 주어진다. <br>
+    ▣ 출력설명 <br>
+    첫 줄에 해당 문자의 개수를 출력한다. <br>
+    ▣ 입력예제 1 <br>
+    COMPUTERPROGRAMMING <br>
+    R <br>
+    ▣ 출력예제 1 
+    <!-- 3 -->
+<hr><br>
+<p class="anwser"></p><br>
+<hr>
+<p>해결과정</p>
+<p>매개변수로 받은 문자를 if로 필터링하고 안에 들어가서 수행하는 동작으로 counter 변수 사용</p>
+<p>내장함수 split 사용 / 처음에는 includes 써는데 counter가 안되고 true(1)값만 리턴됨</p>
+<p>다른방법으로 정규식 사용하거나, filter 등을 사용할 수 있음</p>
+<legend>
+   <fieldset>기존에 했던 for of로 안에 돌면서 counter 변수 사용</fieldset>
+   <fieldset>내장함수: split 스플릿트는 매개변수를 이용해서 객체를 나누어서 배열을 만들어서 리턴한데 
+    여기서는 그 배열의 값을 [cor,ommr,dkkr]이렇게 만들어 지는것! 그래서 배열의 length을 이용해서 몇개가 들어 있는지 확인하는것
+    왜 -1을 사용하는가? 우리는 찾는 값을 구분자로 썼기 때문에 포함된 부분은 -1이 된다! 배열생성은 4개가 되었다면 r에대한 구분은 3개였을 테니까
+   </fieldset>
+</legend>
+
+<script>
+   let anwserBox=document.querySelector(".anwser");
+
+//    function strCounter(text,char) {
+//     let counter=0;
+//     for (const i of text) {
+//         console.log(`check`,char);
+//         //참말로! for를 돌렸는데 위에 매개변수랑 비교를 하면 어떡허냐~~
+//         // if(i===char){
+//         //     counter++;
+//         // }
+//           if(i===char) counter++;
+//     }
+//     return counter;
+//    }
+
+//내장함수를 이용하여 검색
+const strCounter=(s,c)=>{
+    //매개변수 s문자열에 매개변수 c가 있다면 그 배열의 크기를 구해줘 -1
+    let count=s.split(c).length-1;
+    console.log(`check`,count)
+    return count;
+}
+
+
+
+   const text="COMPUTERPROGRAMMING";
+   const res= parseInt(strCounter(text,"R"));
+
+   anwserBox.innerHTML=`<h1>정답: ${res}</h1>`;
+</script>
+</body>
+</html>
