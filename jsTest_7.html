@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 문제 6</title>
+  </head>
+  <body>
+    가장 긴 문자열 N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력하는
+    프로그램을 작성하세요. <br />
+    ▣ 입력설명 <br />
+
+    첫 줄에 자연수 N이 주어진다.(3<=N<=30) <br />
+
+    두 번째 줄부터 N개의 문자열이 주어진다. 문자열의 길이는 100을 넘지 않습니다.
+    <br />
+    각 문자열의 길이는 서로 다릅니다. <br />
+
+    ▣ 출력설명 <br />
+
+    첫 줄에 가장 긴 문자열을 출력한다. <br />
+
+    ▣ 입력예제 1 <br />
+
+    5 <br />
+
+    teacher <br />
+    time <br />
+    student <br />
+    beautiful <br />
+    good <br />
+
+    ▣ 출력예제 1 <br />
+    beautiful <br />
+
+    <!-- 13 -->
+    <hr />
+    <br />
+    <p class="anwser"></p>
+    <br />
+    <hr />
+    <p>해결과정</p>
+    <p>toUpperCase, toLowerCase을 사용</p>
+    <p>
+      반복문을 돌면서 대문자를 찾으면 소문자로 바꾸고 배열에 넣고(push로 넣었음/
+      unshift로 하니까 거꾸로 들어감),
+    </p>
+    <p>elseif에서 소문자을 찾으면 대문자를 바꿔서 배열에 넣음</p>
+    <p>
+      반환값으로 배열값에 조인을 사용하여 문자열로 반환하게 만들어줌 파라미터로
+      공백을넣고 실행
+    </p>
+    <legend>
+      <fieldset></fieldset>
+    </legend>
+
+    <script>
+      let anwserBox = document.querySelector(".anwser");
+
+      const strChange = (str) => {
+        let res = [];
+        for (i of str) {
+          if (i === i.toUpperCase()) {
+            res.push(i.toLowerCase());
+            console.log(`check1 `, res);
+            //또 조건 달지 않고 바로  아닌경우 세팅하고 값 넣어주면 됨
+          } else if (i === i.toLowerCase()) {
+            res.push(i.toUpperCase());
+            console.log(`check2 `, res);
+          }
+        }
+
+        return res.join("");
+      };
+
+      function strChange2(str) {
+        let res = "";
+        for (let i of str) {
+          if (i === i.toUpperCase()) {
+            res += i.toLowerCase();
+          } else res += i.toUpperCase();
+        }
+        return res;
+      }
+
+      const testStr = "StuDY";
+      let res = strChange(testStr);
+      let res2 = strChange2(testStr);
+      anwserBox.innerHTML = `<h1>정답: ${res} // No.2 ${res2}</h1>`;
+    </script>
+  </body>
+</html>
