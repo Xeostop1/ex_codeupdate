@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 문제 7</title>
+  </head>
+  <body>
+    가장 긴 문자열 <br />
+
+    N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력하는 프로그램을
+    작성하세요. <br />
+    ▣ 입력설명 <br />
+    첫 줄에 자연수 N이 주어진다.(3<=N<=30) <br />
+    두 번째 줄부터 N개의 문자열이 주어진다. 문자열의 길이는 100을 넘지 않습니다.
+    <br />
+    각 문자열의 길이는 서로 다릅니다. <br />
+    ▣ 출력설명 <br />
+    첫 줄에 가장 긴 문자열을 출력한다. <br />
+    ▣ 입력예제 <br />
+    teacher <br />
+    time <br />
+    student <br />
+    beautiful <br />
+    good <br />
+
+    ▣ 출력예제 <br />
+    beautiful <br />
+
+    <hr />
+    <br />
+    <p class="anwser"></p>
+    <br />
+    <br />
+    <hr />
+    <p>해결과정</p>
+    <p>
+      배열로 문자열을 넣고 스트링에 갯수는 셀수 있는데 // <br />
+      인터넷 방법으로 찾아봤을때는 배열값들의 렝스값을 다른 배열로 또 묶는것
+    </p>
+    <p>
+      거기서 나온 배열랭스값을 최대값을 조사하고 매칭을 어떻게 하지? 인덱스를
+      서로 매칭해야 하나??
+    </p>
+    <p>max값을 구하고 그 맥스랑 같은 랭스값을 가진 arr[i]값을 가지고 왔음</p> <br>
+    <legend>
+      <fieldset>
+        max 값을 구하고 맥스값과 arr[i].length와 같은것을 찾는다.
+      </fieldset>
+    </legend>
+
+    <script>
+      // html 부분
+      let anwserBox = document.querySelector(".anwser");
+      const strArr = ["teacher", "time", "beautiful", "good"];
+
+      function seachMaxStr(arr) {
+        let res = "";
+        let max = Number.MIN_SAFE_INTEGER;
+        for (let i = 0; i < arr.length; i++) {
+          let strLength = arr[i].length;
+          if (max < strLength) max = strLength; //근데 이게 왜 비교 되는걸까? 궁금해  /대입되면서 제일 큰게 그냥 max랑 비교를 하면서 남잖아~
+          if (max === strLength) res = arr[i];
+        }
+        console.log(`check`, res);
+        return res;
+      }
+
+      let res = seachMaxStr(strArr);
+      // let res2 = strChange2(testStr);
+      anwserBox.innerHTML = `<h1> 정답: ${res} </h1>`;
+      // anwserBox.innerHTML = `<h1>정답: ${res} // No.2 ${res2}</h1>`;
+    </script>
+  </body>
+</html>
