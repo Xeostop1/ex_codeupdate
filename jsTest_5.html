@@ -7,22 +7,20 @@
     <title>자바스크립트 문제 5</title>
   </head>
   <body>
-    대문자로 통일
+    대문자로 통일 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자로
+    모두 통일하여 문자열을 출력 하는 프로그램을 작성하세요. <br />
 
-대문자와  소문자가  같이  존재하는  문자열을  입력받아  대문자로  모두  통일하여  문자열을  출력
-하는  프로그램을  작성하세요. <br>
+    ▣ 입력설명<br />
+    첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다. <br />
+    ▣ 출력설명 <br />
 
-▣  입력설명<br>
-첫  줄에 문자열이 입력된다.  문자열의  길이는 100을  넘지  않습니다. <br>
-▣  출력설명 <br>
+    첫 줄에 대문자로 통일된 문자열이 출력된다. <br />
 
-첫  줄에 대문자로 통일된  문자열이  출력된다. <br>
+    ▣ 입력예제 <br />
+    ItisTimeToStudy <br />
 
-▣  입력예제   <br>
-ItisTimeToStudy <br>
-
-▣  출력예제   <br>
-ITISTIMETOSTUDY <br>
+    ▣ 출력예제 <br />
+    ITISTIMETOSTUDY <br />
     <!-- 11 -->
     <hr />
     <br />
@@ -33,12 +31,10 @@ ITISTIMETOSTUDY <br>
     <p>검색해 봤더니 toUpperCase을 사용</p>
     <legend>
       <fieldset>들어온 인자값 그대로 세팅</fieldset>
-      <fieldset>강의에서는 스트링 누적해서 사용하는걸로 세팅 <br>
-        조건문으로 소문자를 찾아서 대문자로 변환 <br>
-        String.fromCharCode()사용 
-        대문자는 A~Z 65~90
-        소문자 a~z 97~122 
-
+      <fieldset>
+        강의에서는 스트링 누적해서 사용하는걸로 세팅 <br />
+        조건문으로 소문자를 찾아서 대문자로 변환 <br />
+        String.fromCharCode()사용 대문자는 A~Z 65~90 소문자 a~z 97~122
       </fieldset>
     </legend>
 
@@ -46,33 +42,33 @@ ITISTIMETOSTUDY <br>
       let anwserBox = document.querySelector(".anwser");
 
       const upperChange = (str) => {
-        let res="";
+        let res = "";
         //여기는 돌면서 바꿀필요없이 바로 써주면 가능함
-          res=str.toUpperCase();
-          console.log(`check2 `,res);
+        res = str.toUpperCase();
+        console.log(`check2 `, res);
         return res;
       };
 
-      const upperChange2=(str)=>{
-        let res="";
+      const upperChange2 = (str) => {
+        let res = "";
         //ㅠㅠ 멍청이네 스트링에 계속 누적할 수 있는데 배열썼네 +=하면 가능함
-        for(let i of str){
-          if(i===i.toLowerCase()){
-            res+=i.toUpperCase();
-          }else res+=i;
+        for (let i of str) {
+          if (i === i.toLowerCase()) {
+            res += i.toUpperCase();
+          } else res += i;
         }
         return res;
-      }
+      };
 
       function asciiChange(str) {
-        let res="";
-        for(let i of str){
-          let num=i.charCodeAt();
-          if(num>=97 && num<=122){
-            res+=String.fromCharCode(num-32);
-          }else res+=i;
+        let res = "";
+        for (let i of str) {
+          let num = i.charCodeAt();
+          if (num >= 97 && num <= 122) {
+            res += String.fromCharCode(num - 32);
+          } else res += i;
         }
-        return res
+        return res;
       }
 
       const testStr = "ItisTimeToStudy";
