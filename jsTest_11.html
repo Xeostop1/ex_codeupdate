@@ -36,6 +36,11 @@
     <hr />
     <p>해결과정</p>
     <p>배열에 넣고 돌려 줄때 반복문자열만 삭제하고 새로운 배열로 보내기</p>
+    <p>set을 이용하라는데 객체 만들어서 사용하나본데???</p>
+    <p>
+      const dupArr = [1, 2, 3, 1, 2]; <br />
+      const set = new Set(dupArr);
+    </p>
 
     <br />
     <legend>
@@ -45,6 +50,21 @@
     <script>
       // html 부분
       let anwserBox = document.querySelector(".anwser");
+
+      function overlapStr(arr) {
+        //중복제거 확인
+        let res = new Set(arr).join("");
+        console.log(`check`, res);
+
+        return res;
+      }
+
+      //강의보고 추가할 부분! 확인
+      const test = ["good", "time", "good", "time", "student"];
+      let res = overlapStr(test);
+      // let res2 = strChange2(testStr);
+      anwserBox.innerHTML = `<h1> 정답: ${res} </h1>`;
+      // anwserBox.innerHTML = `<h1>정답: ${res} // No.2 ${res2}</h1>`;
     </script>
   </body>
 </html>
