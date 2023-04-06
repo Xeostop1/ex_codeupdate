@@ -53,10 +53,11 @@
 
       function overlapStr(arr) {
         //중복제거 확인
-        let res = new Set(arr).join("");
-        console.log(`check`, res);
-
-        return res;
+        let res = new Set(arr);
+        //스프레드 연산자로 그냥 객체 넣어줬음 왜 벨류 값이 안들어가지ㅠㅠㅠㅠ 
+        let res2=[...res].join(" ");
+        console.log(res2);
+        return res2;
       }
 
       //강의보고 추가할 부분! 확인
